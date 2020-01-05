@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "Spring Database Authentication Resource", description = "Initiates the DB Authentication & Authorization")
 public class HelloController {
 
-    @ApiOperation(value = "Displays secured message")
+    @ApiOperation(value = "Displays secured message.")
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @GetMapping("/secured/display")
     public String display(){
         return "Database Secured resource....";
     }
 
-    @ApiOperation(value = "Shows unsecured messsage")
+    @ApiOperation(value = "Shows unsecured message.")
     @GetMapping("/unsecured/show")
     public String show(){
         return "Unsecured message....";
