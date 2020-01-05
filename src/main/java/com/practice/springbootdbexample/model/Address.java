@@ -3,8 +3,7 @@ package com.practice.springbootdbexample.model;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "address")
+
 public class Address {
     private String addressLine1;
     private String addressLine2;

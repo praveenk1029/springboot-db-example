@@ -20,7 +20,8 @@ public class SwaggerConfig {
         return  new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.practice.springbootdbexample"))
-                .paths(regex("/rest.*"))
+               // .paths(regex("/rest.*"))
+                .paths(regex("/employee.*"))
                 .build()
                 .apiInfo(metaInfo());
     }
