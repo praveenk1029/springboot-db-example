@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/rest")
+@RequestMapping("/rest/db")
 @Api(value = "Spring Database Authentication Resource", description = "Initiates the DB Authentication & Authorization")
 public class HelloController {
 

@@ -21,7 +21,7 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.practice.springbootdbexample"))
                // .paths(regex("/rest.*"))
-                .paths(regex("/employee.*"))
+                .paths(regex("/rest.*"))
                 .build()
                 .apiInfo(metaInfo());
     }
