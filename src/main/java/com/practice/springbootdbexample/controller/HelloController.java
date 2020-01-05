@@ -27,7 +27,7 @@ public class HelloController {
         return "Unsecured message....";
     }
 
-    @ApiOperation(value = "Populates some data")
+    @ApiOperation(value = "Populates some data.")
     @ApiResponses(value = {
             @ApiResponse(code = 100, message = "This is 100 Message"),
             @ApiResponse(code = 200, message = "Success Message:200")
