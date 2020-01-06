@@ -24,6 +24,7 @@ public class DBSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.headers().frameOptions().disable();
         http.csrf().disable();
         http.authorizeRequests()
                 .antMatchers("**/secured/**").fullyAuthenticated()

@@ -18,7 +18,7 @@ public class EmployeeController {
     @GetMapping("/getEmployee")
     @ApiOperation(value = "Pulls Employee Info", notes = "Department Info too")
     public String getEmployee(){
-        Employee emp = employeeService.findByEmpId(5);
+        Employee emp = employeeService.findByEmpId(2);
         return emp.getEmpFirstName()+" "+emp.getEmpLastName()+" "+emp.getDepartment().getDeptName();
     }
 

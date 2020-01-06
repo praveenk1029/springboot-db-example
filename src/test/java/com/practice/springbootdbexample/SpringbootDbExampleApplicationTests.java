@@ -1,6 +1,7 @@
 package com.practice.springbootdbexample;
 
 import com.practice.springbootdbexample.controller.EmployeeController;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -37,7 +36,7 @@ public class SpringbootDbExampleApplicationTests {
 						HttpMethod.GET, entity, String.class);
 		System.out.println("response.getHeaders()::::"+response.getHeaders());
 		System.out.println("response.getBody():::::::"+response.getBody());
-		assertEquals(HttpStatus.OK, response.getStatusCode());
+		Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
 	}
 
 	private String createURLWithPort(String uri) {
