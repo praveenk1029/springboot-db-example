@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/rest/db")
-@Api(value = "Spring Database Authentication Resource", description = "Initiates the DB Authentication & Authorization")
+@Api(value = "Spring Database Authentication Resource", description = "Manage DB Authentication & Authorization")
 public class HelloController {
 
     @ApiOperation(value = "Displays secured message.")

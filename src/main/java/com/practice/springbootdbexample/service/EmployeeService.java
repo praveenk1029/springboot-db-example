@@ -13,8 +13,10 @@ public class EmployeeService {
     @Autowired
     protected EmployeeRepository employeeRepository;
 
-    public Employee findByEmpId(Integer empId){
-        Optional<Employee> optionalEmployee = Optional.ofNullable(employeeRepository.findOne(empId));
+    public Employee findByEmpId(Integer empId) throws Exception {
+        Optional<Employee> optionalEmployee //= Optional.ofNullable(employeeRepository.findOne(empId));
+            = employeeRepository.findByEmpId(empId);
+        optionalEmployee.orElseThrow(()->new Exception("Employee not found!!!"));
         return optionalEmployee.get();
     }
 

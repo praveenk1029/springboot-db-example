@@ -1,5 +1,8 @@
 package com.practice.springbootdbexample.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,15 +12,24 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "empId")
+    @ApiModelProperty(notes = "Unique Id of the Employee")
     private int empId;
+
+    @ApiModelProperty(notes = "Employee FirstName")
     @Column(name = "empFirstName")
     private String empFirstName;
+
     @Column(name = "empLastName")
+    @ApiModelProperty(notes = "Employee LastName")
     private String empLastName;
+
     @Column(name = "salary")
+    @ApiModelProperty(notes = "Employee Salary")
     private Float salary;
+
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "deptId", referencedColumnName = "deptId")
+    @JsonIgnore
     private Department department;
 
     public int getEmpId() {
