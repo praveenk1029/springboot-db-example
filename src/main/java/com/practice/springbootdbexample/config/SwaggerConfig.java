@@ -9,6 +9,8 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.util.ArrayList;
+
 import static springfox.documentation.builders.PathSelectors.regex;
 
 @Configuration
@@ -20,7 +22,6 @@ public class SwaggerConfig {
         return  new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.practice.springbootdbexample"))
-               // .paths(regex("/rest.*"))
                 .paths(regex("/rest.*"))
                 .build()
                 .apiInfo(metaInfo());
@@ -28,14 +29,14 @@ public class SwaggerConfig {
 
     private ApiInfo metaInfo() {
         ApiInfo apiInfo = new ApiInfo(
-                "Spring Boot DB Swagger Example",
-                "Spring Boot DB Swagger Example with Authorization",
+                "Employee Resource",
+                "Employee Management Portal",
                 "1.0",
-                "Terms of Service",
-                new Contact("Developers", "https://www.youtube.com",
-                        "praveenkp466@gmail.com"),
-                "My License Version 2.0",
-                "https://www.google.com"
+                "https://www.espncricinfo.com/",
+                new Contact("Dhoni", "https://www.espncricinfo.com/", "msd@gmail.com"),
+                "@MyCopyRights",
+                "https://www.espncricinfo.com/",
+                new ArrayList<>()
         );
         return apiInfo;
     }

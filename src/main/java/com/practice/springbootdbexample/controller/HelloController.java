@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @ApiOperation(value = "Displays secured message.")
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping("/secured/display")
     public String display(){
-        return "Database Secured resource....";
+        return "Welcome to the DB Authenticated/Authorized Secured Page!!";
     }
 
     @ApiOperation(value = "Shows unsecured message.")
