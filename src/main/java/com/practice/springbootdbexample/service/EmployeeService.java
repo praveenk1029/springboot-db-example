@@ -5,6 +5,7 @@ import com.practice.springbootdbexample.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,6 +19,10 @@ public class EmployeeService {
             = employeeRepository.findByEmpId(empId);
         optionalEmployee.orElseThrow(()->new Exception("Employee not found!!!"));
         return optionalEmployee.get();
+    }
+
+    public List<Employee> getAllEmployees() throws Exception{
+       return employeeRepository.findAll();
     }
 
     public void save(Employee employee){

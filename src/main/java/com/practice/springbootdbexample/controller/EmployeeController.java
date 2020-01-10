@@ -9,6 +9,8 @@ import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/rest/employee")
 @Api(value = "Employee Transactions", description = "Manage Employee")
@@ -24,22 +26,34 @@ public class EmployeeController {
         return emp.getEmpFirstName()+" "+emp.getEmpLastName()+" "+emp.getDepartment().getDeptName();
     }*/
 
-    @GetMapping("/rest/employee/getEmployee/{empId}")
-    @ApiOperation(value = "Pulls Employee Info", notes = "Search Employee!")
+    @GetMapping("/getEmployee/{empId}")
+    @ApiOperation(value = "Pulls Employee Info", notes = "Search Employee by Employee Id!")
     @ApiResponses(value = {
             @ApiResponse(code = 500, message = "Employee not found"),
-            @ApiResponse(code = 200, message = "Success Message:200")
+            @ApiResponse(code = 200, message = "Successfully retrieved Employee Info!!")
     })
     public Employee getEmployee(@PathVariable Integer empId) throws Exception {
         return employeeService.findByEmpId(empId);
     }
 
-    @PostMapping(value = "/rest/employee/saveEmployee")
+    @GetMapping("/getAllEmployees")
+    @ApiOperation(value = "Gets all Employees Info", notes = "Retrieve all the Employees Info.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 500, message = "Employee not found"),
+            @ApiResponse(code = 200, message = "Successfully retrieved Employees Info!!")
+    })
+    public List<Employee> getAllEmployees() throws Exception {
+        List<Employee> employeeList = employeeService.getAllEmployees();
+        System.out.println("employeeList::MAIN:::"+employeeList);
+        return employeeList;
+    }
+
+    @PostMapping(value = "/saveEmployee")
     public void saveEmployee(@RequestBody Employee employee){
         employeeService.save(employee);
     }
 
-    @PutMapping(value = "/rest/employee/updateEmployee")
+    @PutMapping(value = "/updateEmployee")
     public void updateEmployee(@RequestBody Employee employee){
         employeeService.save(employee);
     }
