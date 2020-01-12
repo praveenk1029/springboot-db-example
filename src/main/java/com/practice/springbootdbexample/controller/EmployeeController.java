@@ -57,4 +57,9 @@ public class EmployeeController {
     public void updateEmployee(@RequestBody Employee employee){
         employeeService.save(employee);
     }
+
+    @DeleteMapping(value = "/deleteEmployee/{empId}")
+    public void deleteEmployee(@PathVariable Integer empId){
+        employeeService.deleteByEmpId(empId);
+    }
 }
