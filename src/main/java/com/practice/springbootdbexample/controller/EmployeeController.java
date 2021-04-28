@@ -36,6 +36,11 @@ public class EmployeeController {
         return employeeService.findByEmpId(empId);
     }
 
+    @GetMapping("/getMessage")
+    public String getEmployee() throws Exception {
+        return "Employee service message";
+    }
+
     @GetMapping("/getAllEmployees")
     @ApiOperation(value = "Gets all Employees Info", notes = "Retrieve all the Employees Info.")
     @ApiResponses(value = {
@@ -49,8 +54,9 @@ public class EmployeeController {
     }
 
     @PostMapping(value = "/saveEmployee")
-    public void saveEmployee(@RequestBody Employee employee){
+    public Employee saveEmployee(@RequestBody Employee employee){
         employeeService.save(employee);
+        return employee;
     }
 
     @PutMapping(value = "/updateEmployee")
@@ -58,8 +64,8 @@ public class EmployeeController {
         employeeService.save(employee);
     }
 
-    @DeleteMapping(value = "/deleteEmployee/{empId}")
-    public void deleteEmployee(@PathVariable Integer empId){
-        employeeService.deleteByEmpId(empId);
-    }
+//    @DeleteMapping(value = "/deleteEmployee/{empId}")
+//    public void deleteEmployee(@PathVariable Integer empId){
+//        employeeService.deleteByEmpId(empId);
+//    }
 }

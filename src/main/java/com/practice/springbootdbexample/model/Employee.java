@@ -12,6 +12,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "empId")
+    @JsonIgnore
     @ApiModelProperty(notes = "Unique Id of the Employee")
     private int empId;
 

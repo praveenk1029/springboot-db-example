@@ -25,11 +25,12 @@ public class EmployeeService {
        return employeeRepository.findAll();
     }
 
-    public void save(Employee employee){
+    public Employee save(Employee employee){
         employeeRepository.save(employee);
+        return employee;
     }
 
-    public void deleteByEmpId(Integer empId){
+    /*public void deleteByEmpId(Integer empId){
         employeeRepository.delete(empId);
-    }
+    }*/
 }
