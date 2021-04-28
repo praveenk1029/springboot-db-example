@@ -3,15 +3,14 @@ package com.practice.springbootdbexample;
 import com.practice.springbootdbexample.model.Employee;
 import com.practice.springbootdbexample.service.EmployeeService;
 import org.hamcrest.Matchers;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.*;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -20,6 +19,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+//import org.springframework.boot.context.embedded.LocalServerPort;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -33,8 +34,8 @@ public class SpringbootDbExampleApplicationTests {
 	protected TestRestTemplate testRestTemplate;
 	@Autowired
 	protected EmployeeService employeeService;
-	@LocalServerPort
-	private int port;
+	/*@LocalServerPort
+	private int port;*/
 	HttpHeaders httpHeaders = new HttpHeaders();
 
 	@Test
@@ -58,7 +59,7 @@ public class SpringbootDbExampleApplicationTests {
 				.andExpect(jsonPath("$.empFirstName", Matchers.is("Allen")));
 	}
 
-	@Test
+	/*@Test
 	@Sql("/test.sql")
 	public void testGetEmployee(){
 		HttpEntity<String> entity = new HttpEntity<>(null, httpHeaders);
@@ -68,10 +69,10 @@ public class SpringbootDbExampleApplicationTests {
 		System.out.println("response.getHeaders()::::"+response.getHeaders());
 		System.out.println("response.getBody():::::::"+response.getBody());
 		Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
-	}
+	}*/
 
-	private String createURLWithPort(String uri) {
-		return "http://localhost:" + port + uri;
-	}
+//	private String createURLWithPort(String uri) {
+//		return "http://localhost:" + port + uri;
+//	}
 
 }
