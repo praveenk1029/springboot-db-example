@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/rest/employee")
+//@RequestMapping("/rest/employee")
 @Api(value = "Employee Transactions", description = "Manage Employee")
 public class EmployeeController {
 
@@ -36,7 +36,7 @@ public class EmployeeController {
         return employeeService.findByEmpId(empId);
     }
 
-    @GetMapping("/getMessage")
+    @GetMapping("/")
     public String getEmployee() throws Exception {
         return "Employee service message";
     }
